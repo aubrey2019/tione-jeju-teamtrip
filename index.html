@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#faf7f2">
+<title>济州岛 · TI-ONE 团建（9.13 – 9.17）</title>
+<style>
+/* ══════════════ Design tokens ══════════════ */
+:root{
+  --bg:#faf7f2;
+  --bg-2:#f3ece2;
+  --card:#ffffff;
+  --ink:#231c14;
+  --ink-2:#6a5d4d;
+  --ink-3:#9c8f7d;
+  --line:#e9dfd0;
+  --line-2:#f2ebe0;
+
+  --amber:#c0733a;
+  --amber-2:#a35a22;
+  --amber-soft:#fdf3e9;
+  --teal:#2c6f6b;
+  --teal-soft:#e8f1ef;
+  --rust:#b04a37;
+  --rust-soft:#fdf0ec;
+  --indigo:#4a5fa5;
+  --indigo-soft:#eef1f9;
+  --sea:#3d7ea6;
+  --sea-soft:#e9f2f8;
+
+  --sh-1:0 1px 2px rgba(50,36,20,.04);
+  --sh-2:0 2px 6px rgba(50,36,20,.05), 0 10px 30px rgba(50,36,20,.06);
+  --sh-3:0 4px 12px rgba(50,36,20,.07), 0 20px 50px rgba(50,36,20,.09);
+
+  --serif:"Songti SC","STSong","Noto Serif SC",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"PingFang SC","HarmonyOS Sans SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+
+  --r-s:10px; --r-m:16px; --r-l:22px; --r-xl:28px;
+  --pad:clamp(18px,4.5vw,28px);
+  --maxw:1140px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--sans);color:var(--ink);background:var(--bg);
+  line-height:1.72;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%}
+a{color:var(--amber-2);text-decoration:none}
+::selection{background:rgba(192,115,58,.2)}
+
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
+
+/* ══════════════ Reveal on scroll ══════════════ */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  .rv{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}
+}
+
+/* ══════════════ Nav ══════════════ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  transition:background .35s ease,box-shadow .35s ease,border-color .35s ease;
+  border-bottom:1px solid transparent;
+  padding-top:env(safe-area-inset-top);
+}
+nav.solid{
+  background:rgba(250,247,242,.9);
+  -webkit-backdrop-filter:saturate(180%) blur(16px);
+  backdrop-filter:saturate(180%) blur(16px);
+  border-bottom-color:var(--line);
+  box-shadow:var(--sh-1);
+}
+nav .bar{display:flex;align-items:center;justify-content:space-between;height:58px}
+.brand{
+  display:flex;align-items:baseline;gap:7px;
+  font-family:var(--serif);font-weight:700;font-size:16.5px;letter-spacing:.6px;
+  color:#fff;transition:color .35s ease;white-space:nowrap;
+}
+nav.solid .brand{color:var(--ink)}
+.brand em{font-style:normal;color:#f3c088;transition:color .35s ease}
+nav.solid .brand em{color:var(--amber)}
+.brand small{font-family:var(--sans);font-size:10.5px;letter-spacing:1.6px;opacity:.65;font-weight:500}
+
+.nav-links{display:flex;gap:4px}
+.nav-links a{
+  font-size:13px;color:rgba(255,255,255,.82);padding:7px 13px;border-radius:100px;
+  transition:color .3s,background .3s;white-space:nowrap;
+}
+.nav-links a:hover{background:rgba(255,255,255,.16);color:#fff}
+nav.solid .nav-links a{color:var(--ink-2)}
+nav.solid .nav-links a:hover{background:var(--bg-2);color:var(--amber-2)}
+@media(max-width:820px){.nav-links{display:none}}
+
+.prog{position:absolute;bottom:-1px;left:0;height:2px;width:0;
+  background:linear-gradient(90deg,var(--amber),#e0a061);transition:width .1s linear}
+
+/* ══════════════ Hero ══════════════ */
+header.hero{
+  position:relative;min-height:100svh;min-height:100vh;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  color:#fff;overflow:hidden;background:#1a140e;
+  padding-bottom:clamp(30px,6vh,64px);
+}
+.hero-media{position:absolute;inset:0;overflow:hidden}
+.hero-media img{
+  width:100%;height:100%;object-fit:cover;object-position:center 42%;
+  transform:scale(1.06);
+  animation:kb 26s ease-out forwards;
+  will-change:transform;
+}
+@keyframes kb{from{transform:scale(1.06)}to{transform:scale(1.14)}}
+@media(prefers-reduced-motion:reduce){.hero-media img{animation:none}}
+
+.hero-media::before{
+  content:"";position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,
+      rgba(20,14,9,.52) 0%,
+      rgba(20,14,9,.16) 16%,
+      rgba(20,14,9,.02) 34%,
+      rgba(20,14,9,.30) 62%,
+      rgba(20,14,9,.76) 86%,
+      rgba(20,14,9,.90) 100%);
+}
+.hero-media::after{
+  content:"";position:absolute;inset:0;z-index:1;
+  background:radial-gradient(120% 78% at 22% 92%, rgba(20,14,9,.52) 0%, transparent 62%);
+}
+
+.hero-inner{position:relative;z-index:3;width:100%}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:11px;letter-spacing:2.6px;font-weight:600;text-transform:uppercase;
+  color:rgba(255,255,255,.9);
+  border:1px solid rgba(255,255,255,.32);
+  background:rgba(255,255,255,.08);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  padding:7px 16px;border-radius:100px;margin-bottom:22px;
+}
+.hero-eyebrow .pip{width:5px;height:5px;border-radius:50%;background:#f3c088;
+  box-shadow:0 0 0 3px rgba(243,192,136,.28)}
+.hero h1{
+  font-family:var(--serif);font-weight:700;
+  font-size:clamp(38px,8.4vw,76px);line-height:1.08;letter-spacing:1.5px;
+  text-shadow:0 2px 30px rgba(0,0,0,.34);
+}
+.hero h1 .ln2{display:block;color:#f3c088}
+.hero-sub{
+  margin-top:20px;font-size:clamp(14px,3.4vw,16.5px);line-height:1.78;
+  color:rgba(255,255,255,.87);max-width:56ch;
+  text-shadow:0 1px 14px rgba(0,0,0,.4);
+}
+
+.hero-stats{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:10px;
+  margin-top:clamp(26px,4.5vh,40px);max-width:760px;
+}
+.stat{
+  background:rgba(255,255,255,.11);
+  border:1px solid rgba(255,255,255,.2);
+  -webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%);
+  border-radius:var(--r-m);padding:14px 16px;
+  transition:background .3s,transform .3s;
+}
+.stat:hover{background:rgba(255,255,255,.17);transform:translateY(-2px)}
+.stat .n{font-family:var(--serif);font-size:clamp(17px,3.6vw,25px);font-weight:700;line-height:1.15;letter-spacing:.4px}
+.stat .l{font-size:11px;color:rgba(255,255,255,.72);margin-top:4px;letter-spacing:.3px}
+@media(max-width:720px){
+  .hero-stats{grid-template-columns:repeat(2,1fr);gap:8px}
+  .stat{padding:12px 13px}
+}
+
+.hero-cue{
+  position:absolute;left:50%;bottom:14px;transform:translateX(-50%);z-index:3;
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  font-size:10px;letter-spacing:2px;color:rgba(255,255,255,.55);
+}
+.hero-cue .mouse{
+  width:22px;height:34px;border:1.5px solid rgba(255,255,255,.4);border-radius:12px;position:relative;
+}
+.hero-cue .mouse::after{
+  content:"";position:absolute;left:50%;top:6px;transform:translateX(-50%);
+  width:3px;height:6px;border-radius:2px;background:rgba(255,255,255,.5);
+  animation:wheel 1.8s ease-in-out infinite;
+}
+@keyframes wheel{0%,100%{opacity:.35;transform:translate(-50%,0)}50%{opacity:1;transform:translate(-50%,7px)}}
+
+/* ══════════════ Section shell ══════════════ */
+section{padding:clamp(56px,9vh,92px) 0}
+.sec-head{margin-bottom:clamp(28px,5vh,44px)}
+.sec-eyebrow{
+  display:inline-flex;align-items:center;gap:9px;
+  font-size:11px;letter-spacing:2.4px;font-weight:600;color:var(--amber-2);
+  text-transform:uppercase;margin-bottom:12px;
+}
+.sec-eyebrow::before{content:"";width:26px;height:1.5px;background:var(--amber)}
+.sec-head h2{
+  font-family:var(--serif);font-size:clamp(26px,5vw,38px);font-weight:700;
+  letter-spacing:1px;line-height:1.25;
+}
+.sec-head p{margin-top:12px;color:var(--ink-2);max-width:64ch;font-size:15px}
+
+/* ══════════════ Prep cards ══════════════ */
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:960px){.grid-4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.grid-4{grid-template-columns:1fr}}
+.pcard{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r-l);
+  padding:22px 22px 20px;box-shadow:var(--sh-1);
+  transition:transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s;
+}
+.pcard:hover{transform:translateY(-4px);box-shadow:var(--sh-2)}
+.pcard .pic{
+  width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+  font-size:20px;margin-bottom:14px;
+}
+.pcard h3{font-family:var(--serif);font-size:17.5px;letter-spacing:.5px;margin-bottom:8px}
+.pcard ul{list-style:none}
+.pcard li{
+  font-size:13.5px;color:var(--ink-2);padding:5px 0 5px 16px;position:relative;line-height:1.6;
+}
+.pcard li::before{content:"";position:absolute;left:0;top:13px;width:6px;height:6px;border-radius:2px;background:var(--amber);opacity:.5;transform:rotate(45deg)}
+.pcard li b{color:var(--ink)}
+
+/* ══════════════ Flights ══════════════ */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:820px){.grid-2{grid-template-columns:1fr}}
+.fcard{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r-l);
+  overflow:hidden;box-shadow:var(--sh-1);
+}
+.fcard-head{
+  padding:16px 22px;display:flex;align-items:center;justify-content:space-between;gap:10px;
+  border-bottom:1px solid var(--line-2);
+}
+.fcard-head .t{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-size:17px;font-weight:700;letter-spacing:.5px}
+.fcard-head .t .fi{font-size:20px}
+.fcard-head .cnt{
+  font-size:11px;font-weight:600;letter-spacing:1px;padding:4px 11px;border-radius:100px;
+}
+.fcard-b{padding:8px 22px 14px}
+.frow{display:flex;align-items:center;gap:14px;padding:13px 0;border-bottom:1px dashed var(--line-2)}
+.frow:last-child{border-bottom:none}
+.frow .who{
+  flex:0 0 auto;display:flex;gap:5px;
+}
+.chip{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:30px;height:24px;padding:0 8px;border-radius:8px;
+  font-size:12px;font-weight:700;letter-spacing:.5px;
+}
+.frow .fl{flex:1;min-width:0}
+.frow .fn{font-size:13.5px;font-weight:600}
+.frow .ft{font-size:12.5px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.frow .arrow{color:var(--ink-3);font-size:12px}
+
+/* arrival mini-timeline */
+.arrive{
+  margin-top:16px;background:var(--amber-soft);border:1px solid #f0dcc4;
+  border-radius:var(--r-l);padding:20px 22px;
+}
+.arrive h4{font-family:var(--serif);font-size:15.5px;letter-spacing:.5px;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.arrive ol{list-style:none;counter-reset:ar}
+.arrive li{
+  counter-increment:ar;position:relative;padding:7px 0 7px 36px;
+  font-size:13.5px;color:var(--ink-2);border-bottom:1px dashed rgba(192,115,58,.18);
+}
+.arrive li:last-child{border-bottom:none}
+.arrive li::before{
+  content:counter(ar);position:absolute;left:0;top:9px;
+  width:22px;height:22px;border-radius:50%;background:var(--amber);color:#fff;
+  font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;
+}
+.arrive b{color:var(--ink)}
+
+/* ══════════════ Overview timeline ══════════════ */
+.ov{position:relative;padding-left:34px}
+.ov::before{
+  content:"";position:absolute;left:11px;top:14px;bottom:14px;width:2px;
+  background:linear-gradient(180deg,var(--amber) 0%,var(--teal) 55%,var(--line) 100%);
+  border-radius:2px;opacity:.5;
+}
+.ov-item{position:relative;margin-bottom:14px}
+.ov-item:last-child{margin-bottom:0}
+.ov-dot{
+  position:absolute;left:-34px;top:20px;width:24px;height:24px;border-radius:50%;
+  background:var(--card);border:2px solid var(--amber);
+  display:flex;align-items:center;justify-content:center;
+}
+.ov-dot::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--amber)}
+.ov-item[data-c="teal"] .ov-dot{border-color:var(--teal)}
+.ov-item[data-c="teal"] .ov-dot::after{background:var(--teal)}
+.ov-item[data-c="sea"] .ov-dot{border-color:var(--sea)}
+.ov-item[data-c="sea"] .ov-dot::after{background:var(--sea)}
+.ov-item[data-c="ink"] .ov-dot{border-color:var(--ink-3)}
+.ov-item[data-c="ink"] .ov-dot::after{background:var(--ink-3)}
+.ov-card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r-m);
+  padding:16px 20px;box-shadow:var(--sh-1);
+  transition:transform .3s,box-shadow .3s;
+}
+.ov-card:hover{transform:translateX(4px);box-shadow:var(--sh-2)}
+.ov-top{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.ov-day{
+  font-family:var(--serif);font-size:15px;font-weight:700;letter-spacing:1px;color:var(--amber-2);
+}
+.ov-date{font-size:12px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.ov-flag{
+  font-size:11px;font-weight:600;padding:2px 10px;border-radius:100px;
+  background:var(--teal-soft);color:var(--teal);letter-spacing:.5px;
+}
+.ov-hl{font-size:14.5px;margin-top:5px;line-height:1.65}
+.ov-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}
+.mchip{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:12px;color:var(--ink-2);background:var(--bg);
+  border:1px solid var(--line);border-radius:100px;padding:3.5px 12px;
+}
+.mchip b{color:var(--ink);font-weight:600}
+.mchip .ic{font-size:12px;line-height:1}
+
+/* ══════════════ Map ══════════════ */
+.map-shell{
+  background:linear-gradient(180deg,#f6f1e7,#fbf8f1);
+  border:1px solid var(--line);border-radius:var(--r-xl);
+  padding:clamp(14px,3vw,26px);box-shadow:var(--sh-2);position:relative;
+}
+.map-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.mchip-btn{
+  font-family:var(--sans);font-size:12.5px;font-weight:600;letter-spacing:.3px;
+  padding:7px 15px;border-radius:100px;border:1px solid var(--line);
+  background:var(--card);color:var(--ink-2);cursor:pointer;
+  transition:all .25s;display:inline-flex;align-items:center;gap:7px;
+}
+.mchip-btn .sw{width:9px;height:9px;border-radius:3px;flex:0 0 auto}
+.mchip-btn:hover{border-color:var(--ink-3);transform:translateY(-1px)}
+.mchip-btn.on{
+  color:#fff;background:var(--mc);border-color:transparent;box-shadow:var(--sh-1);
+}
+.map-box{position:relative}
+#jejuMap{width:100%;height:auto;display:block;touch-action:manipulation}
+.map-tip{
+  position:absolute;pointer-events:none;z-index:20;
+  background:rgba(28,22,15,.94);color:#f7f2e8;
+  border-radius:12px;padding:10px 14px;max-width:240px;
+  font-size:12.5px;line-height:1.55;
+  opacity:0;transform:translateY(6px);transition:opacity .2s,transform .2s;
+  box-shadow:var(--sh-3);
+}
+.map-tip.show{opacity:1;transform:translateY(0)}
+.map-tip b{font-size:13.5px;display:block;margin-bottom:3px}
+.map-tip .sub{color:#d9c9a8;font-size:11.5px}
+.map-note{
+  margin-top:12px;font-size:12px;color:var(--ink-3);
+  display:flex;gap:16px;flex-wrap:wrap;align-items:center;
+}
+.map-note .lg{display:inline-flex;align-items:center;gap:6px}
+.map-note .lg i{width:18px;height:3px;border-radius:2px;display:inline-block}
+
+/* svg interactions */
+.spot{cursor:pointer}
+.spot circle.c{transition:r .25s,stroke-width .25s}
+.spot:hover circle.c{stroke-width:3.5}
+.spot text{font-family:var(--sans);pointer-events:none}
+.route{transition:opacity .35s,stroke-width .35s}
+.mk{transition:opacity .35s}
+#jejuMap.filtered .route:not(.on),
+#jejuMap.filtered .mk:not(.on){opacity:.12}
+#jejuMap.filtered .spot-lbl:not(.on){opacity:.18}
+.spot-lbl{transition:opacity .35s}
+
+/* ══════════════ Day cards ══════════════ */
+.day{
+  display:grid;grid-template-columns:1fr;
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r-xl);
+  overflow:hidden;box-shadow:var(--sh-1);margin-bottom:26px;
+  transition:box-shadow .4s;
+}
+.day:hover{box-shadow:var(--sh-2)}
+.day-media{position:relative;aspect-ratio:16/9}
+.day-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.day-media::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(200deg,transparent 46%,rgba(20,14,9,.55) 100%);
+}
+.day-badge{
+  position:absolute;left:18px;top:18px;z-index:2;
+  background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  color:#fff;border-radius:14px;padding:8px 15px;
+  font-size:11px;font-weight:700;letter-spacing:2.4px;
+  display:flex;align-items:baseline;gap:8px;
+}
+.day-badge .num{font-family:var(--serif);font-size:21px;letter-spacing:0}
+.day-cap{
+  position:absolute;left:18px;bottom:14px;z-index:2;color:rgba(255,255,255,.92);
+  font-size:11.5px;letter-spacing:1.2px;text-shadow:0 1px 8px rgba(0,0,0,.45);
+}
+.day-body{padding:clamp(22px,3.6vw,34px)}
+.day-date{
+  font-size:12.5px;font-weight:700;letter-spacing:1.6px;color:var(--amber-2);
+  display:flex;align-items:center;gap:10px;text-transform:uppercase;
+}
+.day-date .dv{width:4px;height:4px;border-radius:50%;background:var(--amber);opacity:.6}
+.day-title{
+  font-family:var(--serif);font-size:clamp(21px,3.6vw,28px);font-weight:700;
+  letter-spacing:.8px;margin-top:8px;line-height:1.3;
+}
+.day-theme{margin-top:6px;font-size:13.5px;color:var(--ink-3);letter-spacing:.4px}
+.day-facts{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 4px}
+
+/* timeline table */
+.tl{margin-top:14px}
+.tl-row{
+  display:grid;grid-template-columns:96px 1fr;gap:14px;
+  padding:11px 0;border-bottom:1px dashed var(--line-2);
+}
+.tl-row:last-of-type{border-bottom:none}
+@media(max-width:560px){.tl-row{grid-template-columns:78px 1fr;gap:10px}}
+.tl-t{
+  font-variant-numeric:tabular-nums;font-weight:700;font-size:13px;color:var(--amber-2);
+  padding-top:2px;letter-spacing:.3px;
+}
+.tl-c{font-size:13.5px;color:var(--ink-2);line-height:1.7}
+.tl-c b{color:var(--ink)}
+.tl-c .k{color:var(--teal);font-weight:600}
+
+/* dolphin booking card */
+.book{
+  margin:16px 0 4px;border-radius:var(--r-m);
+  background:linear-gradient(135deg,var(--sea-soft),#f2f8fb);
+  border:1px solid #d5e6f0;padding:16px 18px;
+}
+.book .bt{
+  display:flex;align-items:center;gap:9px;font-family:var(--serif);
+  font-weight:700;font-size:15.5px;letter-spacing:.5px;color:var(--sea);
+  margin-bottom:8px;
+}
+.book ul{list-style:none}
+.book li{font-size:13px;color:var(--ink-2);padding:3.5px 0 3.5px 15px;position:relative;line-height:1.6}
+.book li::before{content:"·";position:absolute;left:2px;font-weight:900;color:var(--sea)}
+.book b{color:var(--ink)}
+
+/* mini gallery */
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px}
+@media(max-width:560px){.gal{grid-template-columns:repeat(2,1fr)}}
+.gitem{position:relative;border-radius:var(--r-s);overflow:hidden;aspect-ratio:4/3;background:var(--bg-2)}
+.gitem img{width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.gitem:hover img{transform:scale(1.06)}
+.gcap{
+  position:absolute;left:0;right:0;bottom:0;padding:14px 10px 7px;
+  background:linear-gradient(180deg,transparent,rgba(20,14,9,.62));
+  color:#fff;font-size:11px;letter-spacing:.6px;
+}
+
+/* dual route (Day 2) */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px}
+@media(max-width:820px){.duo{grid-template-columns:1fr}}
+.duo-col{border:1px solid var(--line);border-radius:var(--r-m);overflow:hidden}
+.duo-head{
+  padding:12px 18px;display:flex;align-items:center;justify-content:space-between;
+  font-family:var(--serif);font-weight:700;font-size:15px;letter-spacing:.5px;
+}
+.duo-head .tag{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.8px;padding:3px 10px;border-radius:100px;background:rgba(255,255,255,.75)}
+.duo-col .tl{padding:6px 18px 14px}
+.duo-a .duo-head{background:var(--rust-soft);color:var(--rust)}
+.duo-b .duo-head{background:var(--teal-soft);color:var(--teal)}
+
+/* soul + note */
+.soul{
+  margin-top:16px;display:flex;gap:12px;align-items:flex-start;
+  background:var(--amber-soft);border:1px solid #f0dcc4;border-radius:var(--r-m);
+  padding:14px 16px;font-size:13px;color:#7a5a35;line-height:1.7;
+}
+.soul .ic{font-size:17px;line-height:1.3}
+.soul b{color:var(--amber-2)}
+.note{
+  margin-top:14px;border-left:3px solid var(--rust);
+  background:var(--rust-soft);border-radius:0 var(--r-s) var(--r-s) 0;
+  padding:13px 16px;
+}
+.note .nt{font-size:12px;font-weight:700;letter-spacing:1.5px;color:var(--rust);margin-bottom:7px}
+.note ul{list-style:none}
+.note li{font-size:12.8px;color:#7d4a3c;padding:3px 0 3px 15px;position:relative;line-height:1.6}
+.note li::before{content:"";position:absolute;left:1px;top:11px;width:5px;height:5px;border-radius:50%;background:var(--rust);opacity:.55}
+
+/* ══════════════ Budget ══════════════ */
+.btable-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r-l);background:var(--card);box-shadow:var(--sh-1)}
+table.bt{width:100%;border-collapse:collapse;min-width:620px}
+table.bt th{
+  font-family:var(--serif);font-size:14px;letter-spacing:.8px;text-align:left;
+  padding:14px 18px;background:var(--bg-2);border-bottom:1px solid var(--line);
+  white-space:nowrap;
+}
+table.bt td{
+  padding:13px 18px;font-size:13.5px;color:var(--ink-2);
+  border-bottom:1px dashed var(--line-2);vertical-align:top;line-height:1.65;
+}
+table.bt tr:last-child td{border-bottom:none}
+table.bt td:first-child{color:var(--ink);font-weight:600;white-space:nowrap}
+table.bt tr.total td{
+  background:var(--amber-soft);color:var(--amber-2);font-weight:700;
+  border-top:1.5px solid #ecc9a4;font-size:14.5px;
+}
+.stay-note{
+  margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:14px;
+}
+@media(max-width:720px){.stay-note{grid-template-columns:1fr}}
+.stay-card{
+  background:var(--teal-soft);border:1px solid #d2e4e0;border-radius:var(--r-m);
+  padding:16px 18px;font-size:13px;color:#41615d;line-height:1.7;
+}
+.stay-card b{color:var(--teal)}
+.stay-card .st{font-family:var(--serif);font-weight:700;font-size:14.5px;color:var(--teal);display:flex;gap:8px;align-items:center;margin-bottom:6px}
+
+/* ══════════════ Todo ══════════════ */
+.todo-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(max-width:820px){.todo-grid{grid-template-columns:1fr}}
+.todo{
+  display:flex;gap:14px;align-items:flex-start;
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r-m);
+  padding:14px 16px;box-shadow:var(--sh-1);
+  transition:transform .3s,box-shadow .3s;
+}
+.todo:hover{transform:translateY(-2px);box-shadow:var(--sh-2)}
+.todo .cb{
+  flex:0 0 auto;width:22px;height:22px;border-radius:7px;margin-top:2px;
+  border:1.8px solid var(--line);background:var(--card);
+}
+.todo .when{
+  flex:0 0 auto;font-size:11px;font-weight:700;letter-spacing:.8px;color:var(--amber-2);
+  background:var(--amber-soft);border-radius:8px;padding:3px 9px;margin-top:2px;white-space:nowrap;
+}
+.todo .tx{font-size:13.2px;color:var(--ink-2);line-height:1.65}
+.todo .tx b{color:var(--ink)}
+.todo.hot{border-color:#ecc9a4;background:linear-gradient(135deg,#fffaf3,#fdf3e9)}
+.todo.hot .cb{border-color:var(--amber)}
+
+/* roles */
+.roles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px}
+@media(max-width:960px){.roles{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.roles{grid-template-columns:1fr}}
+.role{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r-m);
+  padding:16px 18px;box-shadow:var(--sh-1);
+}
+.role .av{
+  width:38px;height:38px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-weight:700;font-size:14px;color:#fff;margin-bottom:10px;
+}
+.role h4{font-size:14px;letter-spacing:.5px;margin-bottom:4px}
+.role h4 span{color:var(--ink-3);font-weight:500;font-size:12px;margin-left:6px}
+.role p{font-size:12.5px;color:var(--ink-2);line-height:1.6}
+
+/* ══════════════ Footer ══════════════ */
+footer{
+  padding:clamp(48px,8vh,72px) 0 60px;text-align:center;position:relative;
+  border-top:1px solid var(--line);background:linear-gradient(180deg,var(--bg),var(--bg-2));
+}
+footer .fm{
+  font-family:var(--serif);font-size:clamp(20px,4vw,28px);font-weight:700;letter-spacing:2px;
+}
+footer .fm em{font-style:normal;color:var(--amber)}
+footer .fs{margin-top:10px;font-size:12.5px;color:var(--ink-3);line-height:1.8}
+footer .credit{
+  margin-top:22px;font-size:11px;color:var(--ink-3);opacity:.8;
+  max-width:62ch;margin-left:auto;margin-right:auto;line-height:1.7;
+}
+
+/* back to top */
+#top{
+  position:fixed;right:20px;bottom:24px;z-index:90;
+  width:44px;height:44px;border-radius:50%;border:1px solid var(--line);
+  background:rgba(255,255,255,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  box-shadow:var(--sh-2);color:var(--amber-2);font-size:18px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;transform:translateY(14px);pointer-events:none;
+  transition:opacity .3s,transform .3s;
+}
+#top.show{opacity:1;transform:none;pointer-events:auto}
+#top:hover{background:var(--amber);color:#fff;border-color:var(--amber)}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="wrap bar">
+    <div class="brand">济州岛<em>·</em>TI-ONE 团建<small>JEJU 2026</small></div>
+    <div class="nav-links">
+      <a href="#prep">行前必读</a>
+      <a href="#flights">航班</a>
+      <a href="#overview">总览</a>
+      <a href="#map">路线地图</a>
+      <a href="#days">每日行程</a>
+      <a href="#budget">预算</a>
+      <a href="#todo">待办</a>
+    </div>
+  </div>
+  <div class="prog" id="prog"></div>
+</nav>
+
+<!-- ══════════════ Hero ══════════════ -->
+<header class="hero">
+  <div class="hero-media"><img src="images/hero-jeju.jpg" alt="济州岛" fetchpriority="high"></div>
+  <div class="hero-inner wrap">
+    <div class="hero-eyebrow"><span class="pip"></span>JEJU ISLAND · TEAM RETREAT · 2026</div>
+    <h1>济州岛 · TI-ONE 团建<span class="ln2">海豚 · 火山 · 果冻海</span></h1>
+    <p class="hero-sub">2026.9.13 – 9.17 · 7 人 · 北京 / 上海双城出发。出海追野生海豚、登顶汉拿山或漫游咖啡海岸、牛岛环岛骑行、莲洞购物收官——住宿连居莲洞，动线零回头路。</p>
+    <div class="hero-stats">
+      <div class="stat"><div class="n">7 人</div><div class="l">双城出发 · 一岛同游</div></div>
+      <div class="stat"><div class="n">90%+</div><div class="l">出海追海豚偶遇率</div></div>
+      <div class="stat"><div class="n">17 km</div><div class="l">牛岛电动骑行环岛</div></div>
+      <div class="stat"><div class="n">1,950 m</div><div class="l">汉拿山韩国第一峰</div></div>
+    </div>
+  </div>
+  <div class="hero-cue"><div class="mouse"></div>SCROLL</div>
+</header>
+
+<!-- ══════════════ Prep ══════════════ -->
+<section id="prep">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-eyebrow">Before You Go</div>
+      <h2>行前必读</h2>
+      <p>住宿、交通、App、行李与气候——出发前每人过一遍这一屏即可。</p>
+    </div>
+    <div class="grid-4">
+      <div class="pcard rv">
+        <div class="pic" style="background:var(--amber-soft)">🏨</div>
+        <h3>住宿</h3>
+        <ul>
+          <li><b>推荐济州中心城酒店</b>（Jeju Central City Hotel，莲洞노연로 66）及附近区域，各人自行预订</li>
+          <li>9/13 到（aubrey/shengru/cathy/liufang）住 <b>4 晚</b>；9/14 到（kevin/nick/uni）住 <b>3 晚</b></li>
+          <li>莲洞是济州商业中心：机场打车 10 分钟，购物餐饮最便利</li>
+        </ul>
+      </div>
+      <div class="pcard rv">
+        <div class="pic" style="background:var(--teal-soft)">🚕</div>
+        <h3>在地交通</h3>
+        <ul>
+          <li><b>打车用 Uber</b>：韩国为 Uber Taxi 模式，绑国际信用卡即可</li>
+          <li><b>公交用 Visa</b>：2025.8 起济州公交支持海外 Visa 感应拍卡，无需 T-money</li>
+          <li>上下车都要拍卡；备 ¥300–500 等值韩元现金逛市场</li>
+        </ul>
+      </div>
+      <div class="pcard rv">
+        <div class="pic" style="background:var(--indigo-soft)">📱</div>
+        <h3>行前 App</h3>
+        <ul>
+          <li><b>Naver Map</b>：韩国导航 + 公交实时</li>
+          <li><b>Uber</b>：叫车</li>
+          <li><b>Papago</b>：翻译点菜不慌</li>
+        </ul>
+      </div>
+      <div class="pcard rv">
+        <div class="pic" style="background:var(--rust-soft)">🎒</div>
+        <h3>行李与气候</h3>
+        <ul>
+          <li>高倍<b>防晒霜 + 墨镜 + 防晒衣</b>（必备）、折叠雨衣</li>
+          <li><b>带驾照</b>（牛岛租电动自行车 / 电瓶车用）</li>
+          <li>运动鞋 / 登山鞋（汉拿山、牛岛）、轻便外套（早晚差 8–10℃）</li>
+          <li>9 月均温 26℃ / 19℃，阵雨 9–13 天，<b>仍是台风季</b>，出发前 3 天盯气象</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ Flights ══════════════ -->
+<section id="flights" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-eyebrow">Flights</div>
+      <h2>人员 / 航班 / 时间</h2>
+      <p>A 组北京 3 人、B 组上海 4 人，返程同日仅差 35 分钟，可同车去机场。</p>
+    </div>
+    <div class="grid-2">
+      <div class="fcard rv">
+        <div class="fcard-head" style="background:var(--amber-soft)">
+          <div class="t"><span class="fi">🛫</span>A 组 · 北京出发</div>
+          <span class="cnt" style="background:var(--amber);color:#fff">3 人</span>
+        </div>
+        <div class="fcard-b">
+          <div class="frow">
+            <div class="who"><span class="chip" style="background:var(--amber-soft);color:var(--amber-2)">cathy</span><span class="chip" style="background:var(--amber-soft);color:var(--amber-2)">liufang</span></div>
+            <div class="fl"><div class="fn">春秋航空 9C7205</div><div class="ft">9/13 周日 · PKX 17:55 <span class="arrow">✈</span> CJU 21:35（已订）</div></div>
+          </div>
+          <div class="frow">
+            <div class="who"><span class="chip" style="background:var(--amber-soft);color:var(--amber-2)">kevin</span></div>
+            <div class="fl"><div class="fn">早班机（自行购票）</div><div class="ft">9/14 周一 · 建议上午抵 CJU</div></div>
+          </div>
+          <div class="frow">
+            <div class="who"><span class="chip" style="background:var(--amber-soft);color:var(--amber-2)">cathy</span><span class="chip" style="background:var(--amber-soft);color:var(--amber-2)">liufang</span><span class="chip" style="background:var(--amber-soft);color:var(--amber-2)">kevin</span></div>
+            <div class="fl"><div class="fn">春秋航空 9C7206</div><div class="ft">9/17 周四 · CJU 22:35 <span class="arrow">✈</span> PKX 23:55</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="fcard rv">
+        <div class="fcard-head" style="background:var(--teal-soft)">
+          <div class="t"><span class="fi">🛫</span>B 组 · 上海出发</div>
+          <span class="cnt" style="background:var(--teal);color:#fff">4 人</span>
+        </div>
+        <div class="fcard-b">
+          <div class="frow">
+            <div class="who"><span class="chip" style="background:var(--teal-soft);color:var(--teal)">aubrey</span></div>
+            <div class="fl"><div class="fn">东方航空 MU5037</div><div class="ft">9/13 周日 · PVG 12:20 <span class="arrow">✈</span> CJU 15:00（已订）</div></div>
+          </div>
+          <div class="frow">
+            <div class="who"><span class="chip" style="background:var(--teal-soft);color:var(--teal)">shengru</span></div>
+            <div class="fl"><div class="fn">9/13 出发（时间待定）</div><div class="ft">建议与 aubrey 同班或上午班次</div></div>
+          </div>
+          <div class="frow">
+            <div class="who"><span class="chip" style="background:var(--teal-soft);color:var(--teal)">nick</span><span class="chip" style="background:var(--teal-soft);color:var(--teal)">uni</span></div>
+            <div class="fl"><div class="fn">周一早班（建议 MU5025）</div><div class="ft">9/14 周一 · PVG 9:40 <span class="arrow">✈</span> CJU 12:20</div></div>
+          </div>
+          <div class="frow">
+            <div class="who"><span class="chip" style="background:var(--teal-soft);color:var(--teal)">aubrey</span><span class="chip" style="background:var(--teal-soft);color:var(--teal)">shengru</span><span class="chip" style="background:var(--teal-soft);color:var(--teal)">nick</span><span class="chip" style="background:var(--teal-soft);color:var(--teal)">uni</span></div>
+            <div class="fl"><div class="fn">真航空 LJ819</div><div class="ft">9/17 周四 · CJU 22:00 <span class="arrow">✈</span> PVG 22:55</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="arrive rv">
+      <h4>⏱ 关键时间节点 · 不设强制集合</h4>
+      <ol>
+        <li><b>9/13 15:00 前后</b> — 第一批到达（aubrey，及同班的 shengru），Uber 10 分钟进莲洞</li>
+        <li><b>9/13 21:35</b> — 第二批到达（cathy+liufang），22:30 入住洗睡</li>
+        <li><b>9/14 12:00–15:00</b> — 最后一批（kevin / nick+uni）：可落地直奔西归浦汇合 / 回酒店休整后加入下午户外 / 全天休息晚上聚餐，按个人状态灵活定</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ Overview ══════════════ -->
+<section id="overview" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-eyebrow">Overview</div>
+      <h2>行程总览</h2>
+    </div>
+    <div class="ov" id="ov"></div>
+  </div>
+</section>
+
+<!-- ══════════════ Map ══════════════ -->
+<section id="map" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-eyebrow">Route Map</div>
+      <h2>路线地图 · 景点分布示意</h2>
+      <p>按天筛选路线；光标悬停景点查看玩法备注。图形为示意排布（非精确比例），出行以 Naver Map 导航为准。</p>
+    </div>
+    <div class="map-shell rv" id="mapShell">
+      <div class="map-chips" id="mapChips"></div>
+      <div class="map-box">
+        <svg id="jejuMap" viewBox="0 0 860 620" role="img" aria-label="济州岛行程路线示意图">
+          <defs>
+            <linearGradient id="seaBg" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#eef5f7"/><stop offset="1" stop-color="#e6eff2"/>
+            </linearGradient>
+            <linearGradient id="isle" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#f6eeda"/><stop offset="1" stop-color="#efe3c8"/>
+            </linearGradient>
+            <marker id="arrAmber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="#c0733a"/>
+            </marker>
+            <marker id="arrRust" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="#b04a37"/>
+            </marker>
+            <marker id="arrTeal" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="#2c6f6b"/>
+            </marker>
+            <marker id="arrSea" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="#3d7ea6"/>
+            </marker>
+            <marker id="arrInk" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="#8b7c68"/>
+            </marker>
+          </defs>
+
+          <!-- sea -->
+          <rect x="0" y="0" width="860" height="620" rx="26" fill="url(#seaBg)"/>
+          <g stroke="#c9dde3" stroke-width="1.4" fill="none" opacity=".55">
+            <path d="M60 560 q14 -7 28 0 t28 0"/>
+            <path d="M120 80 q14 -7 28 0 t28 0"/>
+            <path d="M740 90 q14 -7 28 0 t28 0"/>
+            <path d="M780 500 q14 -7 28 0 t28 0"/>
+            <path d="M70 300 q14 -7 28 0 t28 0" opacity=".6"/>
+            <path d="M800 330 q14 -7 28 0 t28 0" opacity=".6"/>
+          </g>
+
+          <!-- Jeju island silhouette (stylized) -->
+          <path d="M128 332
+            C 150 262, 200 208, 262 186
+            C 300 172, 342 168, 386 166
+            C 452 163, 520 172, 566 188
+            C 626 210, 678 226, 716 244
+            C 748 259, 756 282, 738 304
+            C 706 344, 660 372, 616 398
+            C 560 431, 502 458, 444 470
+            C 386 482, 322 478, 268 458
+            C 216 439, 168 412, 142 380
+            C 124 357, 118 348, 128 332 Z"
+            fill="url(#isle)" stroke="#d8c9a8" stroke-width="2.5"/>
+
+          <!-- Hallasan -->
+          <g class="spot" data-name="汉拿山 Hallasan" data-desc="1,950m 韩国第一峰。A 线城板岳登顶 9.6km；山腰火山湖白鹿潭。">
+            <path d="M446 316 L470 282 L494 316 Z" fill="#cdbf9e" stroke="#b9a87f" stroke-width="1.6" stroke-linejoin="round"/>
+            <path d="M462 300 L470 288 L478 300 L471 306 Z" fill="#fff" opacity=".9"/>
+            <text x="470" y="338" text-anchor="middle" font-size="13" fill="#8a7a5c" font-weight="600">汉拿山</text>
+          </g>
+
+          <!-- routes (drawn under markers) -->
+          <g fill="none" stroke-width="3.4" stroke-linecap="round">
+            <!-- Day 1 amber: base -> moseulpo -> jungmun -> seogwipo -> base -->
+            <path class="route on" data-d="d1" d="M382 208 C 320 250, 250 300, 224 396" stroke="#c0733a" marker-end="url(#arrAmber)"/>
+            <path class="route on" data-d="d1" d="M232 414 C 262 444, 296 442, 328 428" stroke="#c0733a" marker-end="url(#arrAmber)"/>
+            <path class="route on" data-d="d1" d="M344 424 C 372 442, 396 448, 414 456" stroke="#c0733a" marker-end="url(#arrAmber)"/>
+            <path class="route on" data-d="d1" d="M430 462 C 452 448, 462 404, 452 356 C 444 318, 420 260, 398 224" stroke="#c0733a" marker-end="url(#arrAmber)"/>
+            <!-- Day 2A rust: base -> seongpannak -->
+            <path class="route on" data-d="d2a" d="M398 200 C 448 226, 502 272, 540 318" stroke="#b04a37" stroke-dasharray="1 0" marker-end="url(#arrRust)"/>
+            <path class="route on" data-d="d2a" d="M524 330 C 478 292, 432 248, 402 216" stroke="#b04a37" marker-end="url(#arrRust)" opacity=".55"/>
+            <!-- Day 2B teal: base -> woljeong -> hallim -->
+            <path class="route on" data-d="d2b" d="M372 194 C 344 180, 318 178, 294 182" stroke="#2c6f6b" marker-end="url(#arrTeal)"/>
+            <path class="route on" data-d="d2b" d="M276 188 C 250 198, 226 210, 210 224" stroke="#2c6f6b" marker-end="url(#arrTeal)"/>
+            <path class="route on" data-d="d2b" d="M198 240 C 214 268, 260 292, 320 300 C 348 304, 368 286, 378 252 C 382 234, 384 220, 384 212" stroke="#2c6f6b" marker-end="url(#arrTeal)" opacity=".55"/>
+            <!-- Day 3 sea: base -> seongsan -> udo(ferry dashed) -> back -->
+            <path class="route on" data-d="d3" d="M404 196 C 500 190, 606 208, 682 240" stroke="#3d7ea6" marker-end="url(#arrSea)"/>
+            <path class="route on" data-d="d3" d="M690 232 C 688 200, 684 168, 676 142" stroke="#3d7ea6" stroke-dasharray="7 7" marker-end="url(#arrSea)"/>
+            <path class="route on" data-d="d3" d="M664 138 C 672 166, 678 196, 684 226" stroke="#3d7ea6" stroke-dasharray="7 7" opacity=".55"/>
+            <path class="route on" data-d="d3" d="M672 252 C 590 238, 492 224, 412 212" stroke="#3d7ea6" marker-end="url(#arrSea)" opacity=".55"/>
+            <!-- Day 4 ink: local loop -->
+            <path class="route on" data-d="d4" d="M392 188 C 402 182, 416 184, 424 192" stroke="#8b7c68" stroke-width="2.6" marker-end="url(#arrInk)"/>
+          </g>
+
+          <!-- spots -->
+          <g font-size="12.5">
+            <!-- base -->
+            <g class="spot mk on" data-d="d1 d2a d2b d3 d4" data-name="莲洞 · 住宿大本营" data-desc="济州市商业中心，机场打车 10 分钟。中央地下商场 / 宝健路 / 新罗免税店步行圈内。">
+              <circle class="c" cx="386" cy="200" r="10" fill="#3a3226" stroke="#fff" stroke-width="2.5"/>
+              <text class="spot-lbl on" x="386" y="178" text-anchor="middle" font-weight="700" fill="#3a3226">🏠 莲洞 · 大本营</text>
+            </g>
+            <!-- airport -->
+            <g class="spot mk on" data-d="d4" data-name="济州国际机场 CJU" data-desc="北岸中部。Day 4 两组返程仅差 35 分钟（22:00 / 22:35 起飞）。">
+              <circle class="c" cx="342" cy="176" r="7" fill="#5c5346" stroke="#fff" stroke-width="2"/>
+              <text class="spot-lbl on" x="330" y="160" text-anchor="end" fill="#5c5346" font-weight="600">✈ 机场</text>
+            </g>
+            <!-- dongmun -->
+            <g class="spot mk on" data-d="d4" data-name="东门传统市场" data-desc="夜市 17:00 后开档：现榨柑橘汁、黑猪肉串、橘子大福。Day 4 白天买伴手礼主战场。">
+              <circle class="c" cx="432" cy="204" r="7" fill="#8b7c68" stroke="#fff" stroke-width="2"/>
+              <text class="spot-lbl on" x="446" y="192" fill="#6a5d4d" font-weight="600">东门市场</text>
+            </g>
+            <!-- woljeong -->
+            <g class="spot mk on" data-d="d2b" data-name="涯月邑海岸咖啡街" data-desc="Day 2B：Monsant / Bomnal / Lazy Pump 一线海景咖啡，¥30+ 登楼拍海。">
+              <circle class="c" cx="284" cy="184" r="8" fill="#2c6f6b" stroke="#fff" stroke-width="2.2"/>
+              <text class="spot-lbl on" x="284" y="156" text-anchor="middle" fill="#2c6f6b" font-weight="600">涯月邑咖啡街</text>
+            </g>
+            <!-- hallim -->
+            <g class="spot mk on" data-d="d2b" data-name="翰林 · 挟才海水浴场" data-desc="月形沙滩 + 果冻海 + 火山岩悬崖，看飞扬岛。">
+              <circle class="c" cx="202" cy="230" r="8" fill="#2c6f6b" stroke="#fff" stroke-width="2.2"/>
+              <text class="spot-lbl on" x="196" y="254" text-anchor="middle" fill="#2c6f6b" font-weight="600">翰林 · 挟才</text>
+            </g>
+            <!-- moseulpo M1971 -->
+            <g class="spot mk on" data-d="d1" data-name="摹瑟浦 · M1971 游艇码头" data-desc="Day 1 重头戏：海豚生态巡航 70 分钟，₩48,000/人，野生海豚偶遇率 90%+。">
+              <circle class="c" cx="222" cy="406" r="11" fill="#c0733a" stroke="#fff" stroke-width="2.6"/>
+              <text x="222" y="411" text-anchor="middle" font-size="11" font-weight="800" fill="#fff">1</text>
+              <text class="spot-lbl on" x="238" y="398" fill="#a35a22" font-weight="700">🐬 M1971 追海豚</text>
+            </g>
+            <!-- jungmun jusangjeolli -->
+            <g class="spot mk on" data-d="d1" data-name="柱状节理带（中文旅游区）" data-desc="六角玄武岩柱阵海岸悬崖，步道来回 1km，下午斜光最出片。免费。">
+              <circle class="c" cx="336" cy="422" r="9" fill="#c0733a" stroke="#fff" stroke-width="2.4"/>
+              <text x="336" y="426" text-anchor="middle" font-size="10.5" font-weight="800" fill="#fff">柱</text>
+              <text class="spot-lbl on" x="316" y="448" text-anchor="end" fill="#a35a22" font-weight="600">柱状节理带</text>
+            </g>
+            <!-- jeongbang -->
+            <g class="spot mk on" data-d="d1" data-name="正房瀑布" data-desc="全国唯一直接入海瀑布（落差 23m），沿木阶下到岩石海滩。免费。">
+              <circle class="c" cx="418" cy="456" r="9" fill="#c0733a" stroke="#fff" stroke-width="2.4"/>
+              <text x="418" y="460" text-anchor="middle" font-size="10.5" font-weight="800" fill="#fff">正</text>
+              <text class="spot-lbl on" x="404" y="480" text-anchor="end" fill="#a35a22" font-weight="600">正房瀑布 · 西归浦</text>
+            </g>
+            <!-- cheonjiyeon -->
+            <g class="spot mk on" data-d="d1" data-name="天地渊瀑布" data-desc="西归浦三大瀑布之首，亚热带植物环绕，门票 ₩2,000。时间紧可省。">
+              <circle class="c" cx="452" cy="466" r="8" fill="#c0733a" stroke="#fff" stroke-width="2.2"/>
+              <text x="452" y="470" text-anchor="middle" font-size="10" font-weight="800" fill="#fff">天</text>
+              <text class="spot-lbl on" x="468" y="478" fill="#a35a22" font-weight="600">天地渊瀑布</text>
+            </g>
+            <!-- seongpannak -->
+            <g class="spot mk on" data-d="d2a" data-name="城板岳登山口" data-desc="Day 2A：9.6km 登顶白鹿潭，单程 4.5h。需提前预约 visithalla.jeju.go.kr，12:30 上山截止。">
+              <circle class="c" cx="548" cy="326" r="10" fill="#b04a37" stroke="#fff" stroke-width="2.5"/>
+              <text x="548" y="331" text-anchor="middle" font-size="11" font-weight="800" fill="#fff">A</text>
+              <text class="spot-lbl on" x="548" y="352" text-anchor="middle" fill="#b04a37" font-weight="700">城板岳登山口</text>
+            </g>
+            <!-- seongsan -->
+            <g class="spot mk on" data-d="d3" data-name="城山港" data-desc="Day 3 出海牛岛的码头，顺看城山日出峰。机场/莲洞出发约 90 分钟。">
+              <circle class="c" cx="688" cy="244" r="10" fill="#3d7ea6" stroke="#fff" stroke-width="2.5"/>
+              <text x="688" y="249" text-anchor="middle" font-size="11" font-weight="800" fill="#fff">3</text>
+              <text class="spot-lbl on" x="688" y="274" text-anchor="middle" fill="#2d6488" font-weight="700">城山港 · 日出峰</text>
+            </g>
+            <!-- udo -->
+            <g class="spot mk on" data-d="d3" data-name="牛岛" data-desc="渡轮 15 分钟。电动自行车逆时针环岛 17km：西滨白沙→白灯塔→下古水洞→东岸鲸窟→黑沙滩→牛头峰。">
+              <ellipse cx="666" cy="126" rx="30" ry="14" fill="#e9f2f8" stroke="#3d7ea6" stroke-width="2" stroke-dasharray="5 4"/>
+              <text class="spot-lbl on" x="666" y="131" text-anchor="middle" fill="#2d6488" font-weight="800" font-size="13">牛岛</text>
+              <text x="666" y="102" text-anchor="middle" font-size="10.5" fill="#5b87a5">🚢 15min 渡轮</text>
+            </g>
+          </g>
+
+          <!-- compass -->
+          <g transform="translate(788,72)" opacity=".7">
+            <circle r="20" fill="#fff" stroke="#c9b995" stroke-width="1.5"/>
+            <path d="M0,-13 L4,4 L0,1 L-4,4 Z" fill="#b04a37"/>
+            <text y="-26" text-anchor="middle" font-size="11" fill="#8a7a5c" font-weight="700">N</text>
+          </g>
+          <text x="70" y="600" font-size="11" fill="#9c8f7d">※ 手绘示意图 · 非精确比例，方位仅供参考</text>
+        </svg>
+        <div class="map-tip" id="mapTip"></div>
+      </div>
+      <div class="map-note">
+        <span class="lg"><i style="background:#c0733a"></i>Day 1 西南海岸 · 追海豚</span>
+        <span class="lg"><i style="background:#b04a37"></i>Day 2A 汉拿山登顶</span>
+        <span class="lg"><i style="background:#2c6f6b"></i>Day 2B 涯月邑海岸</span>
+        <span class="lg"><i style="background:#3d7ea6"></i>Day 3 牛岛（虚线=渡轮）</span>
+        <span class="lg"><i style="background:#8b7c68"></i>Day 4 市区购物</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ Days ══════════════ -->
+<section id="days" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-eyebrow">Day by Day</div>
+      <h2>每日行程</h2>
+    </div>
+    <div id="daysBox"></div>
+  </div>
+</section>
+
+<!-- ══════════════ Budget ══════════════ -->
+<section id="budget" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-eyebrow">Budget</div>
+      <h2>预算估算（按人）</h2>
+      <p>含机票参考价、不含购物。按周日到（4 晚）与周一到（3 晚）分列，机票按出发城市区分。</p>
+    </div>
+    <div class="btable-wrap rv">
+      <table class="bt">
+        <thead>
+          <tr><th>项目</th><th>周日到 · aubrey/shengru/cathy/liufang（4 晚）</th><th>周一到 · kevin/nick/uni（3 晚）</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>机票（往返参考价）</td><td>北京往返约 ¥1,200/人（cathy、liufang）<br>上海往返约 ¥1,500/人（aubrey、shengru）</td><td>北京往返约 ¥1,200/人（kevin）<br>上海往返约 ¥1,500/人（nick、uni）</td></tr>
+          <tr><td>住宿（约 ¥350/晚）</td><td>¥1,400</td><td>¥1,050</td></tr>
+          <tr><td>餐饮 4 天 × 3 顿</td><td>¥800–1,200</td><td>¥800–1,200</td></tr>
+          <tr><td>在地交通（Uber 拼车分摊 + 公交）</td><td>¥300–450</td><td>¥300–450</td></tr>
+          <tr><td>门票 + 船票</td><td>M1971 海豚 ¥260 / 天地渊 ¥10 / 牛岛船 ¥55 / 电动自行车 ¥80<br><b>小计 ¥400–460</b></td><td>默认不含海豚：天地渊 ¥10 / 牛岛船 ¥55 / 电动自行车 ¥80<br><b>小计 ¥150–260</b>；想追海豚另加约 ¥260（可约 M1971 当日下午场）</td></tr>
+          <tr class="total"><td>合计（含机票、不含购物）</td><td>北京出发 <b>¥4,100–4,700</b><br>上海出发 <b>¥4,400–5,000</b></td><td>北京出发 <b>¥3,500–4,200</b><br>上海出发 <b>¥3,800–4,500</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="stay-note rv">
+      <div class="stay-card">
+        <div class="st">🏨 住宿参考（莲洞区域）</div>
+        济州中心城酒店 Jeju Central City Hotel 约 <b>¥700/晚</b>（双床房，2 人拼，人均约 <b>¥350/晚</b>）；莲洞周边同级选择多（Staz Hotel、Ramada 等）¥600–800/晚。建议同区域订 2–3 家相邻酒店，方便每日出发。
+      </div>
+      <div class="stay-card">
+        <div class="st">💳 现金与支付</div>
+        Uber 绑国际信用卡、公交直接拍 Visa；每人备 <b>¥300–500 等值韩元现金</b>用于传统市场与小摊；偶来市场 / 东门市场夜市摊位现金更便捷。
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ Todo ══════════════ -->
+<section id="todo" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-eyebrow">Checklist</div>
+      <h2>行前待办清单</h2>
+    </div>
+    <div class="todo-grid" id="todoGrid"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fm rv">不易不冷、不卷不急 · <em>好好玩</em></div>
+    <div class="fs rv">济州岛 · TI-ONE 团建 · 2026.9.13 – 9.17 · 7 人 · 北京 / 上海双城出发</div>
+  </div>
+</footer>
+
+<button id="top" aria-label="回到顶部">↑</button>
+
+<script>
+/* ══════════════ Data ══════════════ */
+const OV = [
+  {d:"Day 0", date:"9/13 周日", hl:"抵达 + 自由活动（各自安排，莲洞周边逛吃）", stay:"莲洞区域酒店", drive:"机场→酒店 10min"},
+  {d:"Day 1", date:"9/14 周一", hl:"西南海岸：上午出海追海豚（M1971）+ 下午柱状节理 → 正房瀑布 → 天地渊（后到的人选择性加入）", stay:"莲洞区域酒店", drive:"酒店→摹瑟浦 60–70min", flag:"🐬 重头戏"},
+  {d:"Day 2", date:"9/15 周二", hl:"汉拿山分线：A 城板岳登顶 / B 涯月邑海岸咖啡街，晚间汇合晚餐", stay:"莲洞区域酒店", drive:"→城板岳 50min / →涯月邑 35min"},
+  {d:"Day 3", date:"9/16 周三", hl:"牛岛一日游（渡轮 + 电动自行车逆时针环岛 17km 六大点位）", stay:"莲洞区域酒店", drive:"→城山港 1h30 + 船 15min"},
+  {d:"Day 4", date:"9/17 周四", hl:"莲洞集中购物（地下商场 / 宝健路 / 东门市场），晚间返京 / 返沪", stay:"—", drive:"酒店→机场 10min"},
+];
+
+const DAYS = [
+  {
+    n:"0", date:"9月13日", wd:"周日", title:"抵达日 · 纯自由活动",
+    theme:"莲洞商圈 · 各自休整",
+    img:"images/yeon-dong.jpg", cap:"济州市 · 莲洞商圈",
+    stay:"莲洞区域酒店", drive:"机场→酒店 10min",
+    tl:[
+      ["上午","B 组上海浦东出发；A 组北京傍晚出发（9C7205 PKX 17:55 起飞）"],
+      ["15:00","aubrey（及同班 shengru）抵达济州机场：过关取行李，Uber 10 分钟（约 ₩5,000）进莲洞，办理入住或寄存行李"],
+      ["下午","自由逛吃（步行圈）：<b>中央地下商场</b>（10:00–22:00，300+ 店铺，4 号出口自动退税机）· <b>宝健路 + 七星路</b>（Olive Young / 新罗免税店）"],
+      ["17:00+","<b>东门传统市场</b>夜市开档：现榨柑橘汁、黑猪肉串、橘子红豆大福"],
+      ["晚餐","自选：88 Pork 흑돼지（莲洞，中文服务）/ Donsadon 黑猪专门店 / 东门夜市小吃合集"],
+      ["21:35","cathy+liufang 落地，22:30 回酒店入住，直接洗睡"],
+    ],
+    soul:"<b>Day 0 不设任何统一安排</b>——各人按航班时间休整，养足精神；次日西归浦行程先到的人全程参加，后到的人按需加入。",
+    notes:["上海队下午到，避开正午暴晒，16:00 后再出门逛","北京队 21:35 才落地，别安排任何活动"],
+  },
+  {
+    n:"1", date:"9月14日", wd:"周一", title:"西南海岸 · 出海追海豚",
+    theme:"M1971 游艇 → 柱状节理 → 正房瀑布 → 天地渊",
+    img:"images/dolphin.jpg", cap:"野生印太洋瓶鼻海豚 · 济州海域",
+    stay:"莲洞区域酒店", drive:"酒店→摹瑟浦 60–70min",
+    book:{
+      t:"🐬 M1971 海豚生态巡航（Dolphin Eco Tour）",
+      li:[
+        "西归浦市大静邑摹瑟浦 · 最南端海岸路 128（西南海岸，莲洞出发 60–70 分钟）",
+        "<b>70 分钟游艇巡航 · 成人 ₩48,000 ≈ ¥250–260</b> · 全年无休（09:00–18:00，11:30–12:30 午休）",
+        "野生印太洋瓶鼻海豚<b>偶遇率 90%+</b>；未偶遇赠 50% 下次巡航优惠券",
+        "船上免费饮料 / 零食 / 毛毯 / 晕船袋；岸边 M Bridge 咖啡馆可等船",
+        "预约：<b>m1971.com / Klook / +82-64-901-1971</b>，选 9/14 上午 10:30 场 × 人数",
+      ],
+    },
+    tl:[
+      ["08:00","早餐；<span class='k'>晕船易感者随餐服晕船药</span>"],
+      ["09:00","Uber 出发去摹瑟浦 M1971 码头（60–70min，约 ¥180–230/车）"],
+      ["10:00","码头报到（提前 30min）领救生衣"],
+      ["10:30","<b>出海追海豚 70 分钟</b>——甲板拍照，船长贴着海豚群慢速伴航"],
+      ["12:00","摹瑟浦港午餐：미영이네식당（鲭鱼名店）/ 新昌黑猪肉두루치기 / 摹瑟浦中央市场"],
+      ["13:00","Uber 沿南岸公路向东（40–50min，沿海风景段）"],
+      ["14:00","<b>后到的人在此汇合</b>（机场直达柱状节理约 50–60min）——<b>柱状节理带</b>：六角玄武岩柱阵，步道来回 1km，斜光最出片"],
+      ["15:30","<b>正房瀑布</b>：全国唯一直接入海瀑布（23m），沿木阶下到岩石海滩"],
+      ["17:00","<b>天地渊瀑布</b>（₩2,000）：三大瀑布之首，亚热带植物环绕；时间紧可省"],
+      ["18:00","<b>西归浦每日偶来市场</b>：橘子大福、汉拿峰果汁、海鲜葱饼（现金便捷）"],
+      ["20:30","<b>全员晚餐</b>：Dombedon（米其林必比登）/ 88 Pork / 고기역，提前预约"],
+    ],
+    gal:[
+      {img:"images/jusangjeolli.jpg", cap:"柱状节理带"},
+      {img:"images/jeongbang.jpg", cap:"正房瀑布"},
+      {img:"images/cheonjiyeon.jpg", cap:"天地渊瀑布"},
+    ],
+    soul:"<b>顺时针环南岸大环，零回头路</b>：莲洞 → 摹瑟浦出海 → 港口午餐 → 沿南岸向东 → 柱状节理 → 正房 → 天地渊 → 偶来市场 → 回莲洞。上午海上（光线柔、风浪小），下午 14:00 后斜光拍海岸。备选：M1971 满员换 K-Jeju Sea（下摹海水浴场，海豚造型船 1h）；台风停航则改泰迪熊博物馆 / O'sulloc（全年无休），下午户外不变。",
+    notes:["海豚是野生动物，90%+ 偶遇率但非 100%，心态放平","晕船药提前 30–60 分钟服用；出发前一晚确认是否照常开航","9/14 周一：韩国公立博物馆多数闭馆（李仲燮美术馆）——行程已避开","偶来市场小摊现金为主，备 ¥200 等值零钱"],
+  },
+  {
+    n:"2", date:"9月15日", wd:"周二", title:"汉拿山分线日",
+    theme:"A 城板岳登顶 / B 涯月邑海岸 · 晚间汇合",
+    img:"images/hallasan.jpg", cap:"汉拿山 · 白鹿潭",
+    stay:"莲洞区域酒店", drive:"→城板岳 50min / →涯月邑 35min",
+    duo:{
+      a:{tag:"登山 · 9.6km", tl:[
+        ["05:30","起床，前台打包简易早餐（提前一晚订）"],
+        ["06:30","Uber 拼车去城板岳探访路支援中心（50min）"],
+        ["07:30","过检查站（护照 + 预约码），正式登山：9.6km / 单程 4.5h"],
+        ["12:00","登顶<b>白鹿潭</b>火山湖，停留拍照（山顶 7–12℃ 大风）"],
+        ["12:30","准时下山（时间管制），15:30 出山，18:00 回酒店"],
+        ["19:30","海鲜锅庆功：三姓穴鲍鱼海鲜汤（4 人份约 ₩80,000）"],
+      ]},
+      b:{tag:"休闲 · 咖啡海岸", tl:[
+        ["09:00","自然醒，酒店早餐"],
+        ["10:30","<b>涯月邑海岸咖啡街</b>：Monsant 顶楼海景 / Bomnal 黄色小楼 / Lazy Pump 大方窗三层楼"],
+        ["13:30","海岸午餐：Donmong 涯月邑本店（黑猪 + 海鲜拼盘）"],
+        ["15:30","<b>翰林海边 + 挟才海水浴场</b>：月形沙滩、果冻海、火山岩悬崖"],
+        ["17:30","回酒店（40min），19:00 与 A 线汇合晚餐"],
+      ]},
+    },
+    soul:"<b>谁去登顶按个人意愿，两条线互不拖累</b>：A 线 05:30 出发 18:00 回，B 线 09:00 出发 17:30 回——<b>汇合点在晚上 19:00 的餐桌</b>。9 月汉拿山天气清爽、人流少于春季。",
+    notes:["A 线必预约：visithalla.jeju.go.kr 城板岳路线（每日限 800 人，6–9 月 12:30 上山截止）","A 线装备：登山鞋必备、1.5L 水、防风外套、手套帽子（山顶低 10–15℃）","雨天山路滑，出发前一晚查登山实况；装备不到位直接走 B 线","B 线咖啡街周二人少，体验最佳"],
+  },
+  {
+    n:"3", date:"9月16日", wd:"周三", title:"牛岛一日游",
+    theme:"渡轮 + 电动自行车逆时针环岛 17km",
+    img:"images/seongsan.jpg", cap:"城山日出峰 · 城山港",
+    stay:"莲洞区域酒店", drive:"→城山港 1h30 + 船 15min",
+    tl:[
+      ["07:30","Uber 拼车去城山港（90min，7 座一辆或两辆普通车）"],
+      ["09:00","码头填乘船申请书，凭护照买往返船票（约 ₩10,000）"],
+      ["09:30","坐船去牛岛（15min）——三层视线最好，买虾条喂海鸥"],
+      ["09:45","码头租电动自行车（₩9,000–15,000；巴士一日券 ₩5,000）"],
+      ["10:15","① <b>西滨白沙</b>：珊瑚沙 + 果冻海，出片机位"],
+      ["11:00","② <b>白色灯塔</b>：黑礁石 + 纯白灯塔，牛岛标志"],
+      ["11:45","③ <b>下古水洞</b>海水浴场 + Blanc Rocher 海景咖啡"],
+      ["12:30","④ <b>东岸鲸窟</b>：海蚀洞窟 + 悬崖步道；⑤ <b>黑沙滩</b>午餐（海女之家 / 牛岛炸酱面）"],
+      ["14:30","⑥ <b>牛头峰</b>：平缓登顶 360° 俯瞰全岛 + 远眺日出峰"],
+      ["15:30","退车乘船回城山港，16:00 回程，18:00 回酒店"],
+      ["19:30","<b>东门市场夜市晚餐</b>；分配明晚送机 Uber、买伴手礼"],
+    ],
+    soul:"<b>牛岛是全程高潮</b>——「不去会遗憾」的代名词。环岛 17km 电动骑行约 1.5h、边骑边玩 5h；班次密集（30min 一班）但 <b>09:00 前到码头是黄金时间</b>，避免 11:00 后上岛人挤人。未走完的点位不必拘泥，轻松优先。",
+    notes:["防晒重中之重：全岛几乎无树荫","18:00 前后末班船，提前 15min 到码头","租电动车押护照；还车前拍轮胎 / 仪表盘防纠纷","海边风大，薄外套 + 长裤"],
+  },
+  {
+    n:"4", date:"9月17日", wd:"周四", title:"购物日 · 启程返京 / 沪",
+    theme:"三大购物区步行圈 · 双城返程",
+    img:"images/dongmun.jpg", cap:"东门传统市场",
+    stay:"—", drive:"酒店→机场 10min",
+    tl:[
+      ["09:00","<b>中央地下商场</b>：化妆品、服饰、包鞋；4 号口自动退税机（单笔满 ₩30,000 可退）"],
+      ["10:30","<b>宝健路 + 新罗免税店</b>：免税品需提前 24h 在 APP / 官网下单，机场取货"],
+      ["12:00","<b>东门市场</b>买伴手礼：柑橘礼盒、橘子巧克力、海苔、黑猪肉干"],
+      ["13:30","莲洞黑猪肉午餐（88 Pork / Dombedon / 고기역 任选）"],
+      ["15:00","回各自酒店退房 + 前台寄存行李"],
+      ["18:00","Uber 去机场（10min）"],
+      ["22:00","<b>B 组 LJ819</b> 起飞 → 次日 00:55 抵 PVG"],
+      ["22:35","<b>A 组 9C7206</b> 起飞 → 23:55 抵 PKX"],
+    ],
+    soul:"<b>最后一天的主题是「带走济州」</b>：三大购物区都在莲洞 15 分钟步行圈内。两组返程仅差 35 分钟，可同车同时段到机场、相邻柜台办登机。",
+    notes:["新罗免税需护照原件，提前 24h 下单","退房 12:00 前，可与前台沟通延迟或寄存","22:00 后本岛安静，送机 Uber 提前约好"],
+  },
+];
+
+const TODO = [
+  {w:"8/28–29", t:"<b>抢汉拿山城板岳预约</b>（visithalla.jeju.go.kr，名额紧张，想登山的同时在线抢 9/15）", hot:true},
+  {w:"8/29–30", t:"建议全员下载 App：Naver Map、Uber、Papago"},
+  {w:"9/1 前", t:"Visa 卡开通境外感应支付；Uber 绑定国际信用卡"},
+  {w:"9/5 前", t:"非中国籍队员办理 K-ETA"},
+  {w:"9/8 前", t:"<b>预约 M1971 海豚生态巡航</b>：9/14 上午 10:30 场 × 人数（m1971.com / Klook / +82-64-901-1971），确认停航退款政策", hot:true},
+  {w:"9/10 前", t:"建议每人换 ¥300–500 等值韩元现金（市场 / 小摊）"},
+  {w:"9/11", t:"查天气预报，备雨衣 / 雨伞；关注台风动态"},
+  {w:"9/12", t:"检查防晒装备、登山鞋（登山线队员）；备晕船药"},
+  {w:"9/13 前", t:"shengru、nick、uni、kevin 机票出票；各自订好酒店（莲洞区域，9.13–9.17 或 9.14–9.17）"},
+];
+
+/* ══════════════ Render ══════════════ */
+const esc = s => String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+// allow <b>/<span> in data: whitelist-lite escape
+const rich = s => esc(s).replace(/&lt;(\/?(?:b|span)(?:\s+class='[^']*')?)&gt;/g,"<$1>");
+
+document.getElementById("ov").innerHTML = OV.map((o,i)=>`
+  <div class="ov-item rv" data-c="${["amber","amber","teal","sea","ink"][i]}">
+    <div class="ov-dot"><i class="ov-dot-inner" style="display:none"></i></div>
+    <div class="ov-card">
+      <div class="ov-top">
+        <span class="ov-day">${esc(o.d)}</span>
+        <span class="ov-date">${esc(o.date)}</span>
+        ${o.flag?`<span class="ov-flag">${esc(o.flag)}</span>`:""}
+      </div>
+      <div class="ov-hl">${rich(o.hl)}</div>
+      <div class="ov-meta">
+        <span class="mchip"><i class="ic">🏨</i><span>住 <b>${esc(o.stay)}</b></span></span>
+        <span class="mchip"><i class="ic">🚕</i><span>${esc(o.drive)}</span></span>
+      </div>
+    </div>
+  </div>`).join("");
+
+document.getElementById("daysBox").innerHTML = DAYS.map(d=>`
+  <article class="day rv">
+    <div class="day-media">
+      <span class="day-badge">DAY <span class="num">${esc(d.n)}</span></span>
+      <img src="${d.img}" alt="${esc(d.cap)}" loading="lazy" decoding="async">
+      <div class="day-cap">${esc(d.cap)}</div>
+    </div>
+    <div class="day-body">
+      <div class="day-date">${esc(d.date)}<i class="dv"></i>${esc(d.wd)}</div>
+      <h3 class="day-title">${esc(d.title)}</h3>
+      <div class="day-theme">${esc(d.theme)}</div>
+      <div class="day-facts">
+        <span class="mchip"><i class="ic">🏨</i><span>${esc(d.stay)}</span></span>
+        <span class="mchip"><i class="ic">🚕</i><span>${esc(d.drive)}</span></span>
+      </div>
+      ${d.book?`
+      <div class="book">
+        <div class="bt">🐬 ${esc(d.book.t)}</div>
+        <ul>${d.book.li.map(x=>`<li>${rich(x)}</li>`).join("")}</ul>
+      </div>`:""}
+      ${d.duo?`
+      <div class="duo">
+        <div class="duo-col duo-a">
+          <div class="duo-head">⛰ 方案 A · 汉拿山登顶线<span class="tag">${esc(d.duo.a.tag)}</span></div>
+          <div class="tl">${d.duo.a.tl.map(t=>`<div class="tl-row"><div class="tl-t">${esc(t[0])}</div><div class="tl-c">${rich(t[1])}</div></div>`).join("")}</div>
+        </div>
+        <div class="duo-col duo-b">
+          <div class="duo-head">🌊 方案 B · 涯月邑风光线<span class="tag">${esc(d.duo.b.tag)}</span></div>
+          <div class="tl">${d.duo.b.tl.map(t=>`<div class="tl-row"><div class="tl-t">${esc(t[0])}</div><div class="tl-c">${rich(t[1])}</div></div>`).join("")}</div>
+        </div>
+      </div>`:`
+      <div class="tl">${d.tl.map(t=>`<div class="tl-row"><div class="tl-t">${esc(t[0])}</div><div class="tl-c">${rich(t[1])}</div></div>`).join("")}</div>`}
+      ${d.gal?`
+      <div class="gal">
+        ${d.gal.map(g=>`<div class="gitem"><img src="${g.img}" alt="${esc(g.cap)}" loading="lazy" onerror="this.closest('.gitem').style.display='none'"><div class="gcap">${esc(g.cap)}</div></div>`).join("")}
+      </div>`:""}
+      ${d.soul?`<div class="soul"><i class="ic">💡</i><div>${rich(d.soul)}</div></div>`:""}
+      ${d.notes?`<div class="note"><div class="nt">⚠ 特别提醒</div><ul>${d.notes.map(n=>`<li>${rich(n)}</li>`).join("")}</ul></div>`:""}
+    </div>
+  </article>`).join("");
+
+document.getElementById("todoGrid").innerHTML = TODO.map(t=>`
+  <div class="todo rv${t.hot?" hot":""}">
+    <div class="cb"></div>
+    <div class="when">${esc(t.w)}</div>
+    <div class="tx">${rich(t.t)}</div>
+  </div>`).join("");
+
+/* ══════════════ Map interactions ══════════════ */
+const MAPDAYS = [
+  {id:"all",  label:"全部", color:"#3a3226"},
+  {id:"d1",   label:"Day 1 · 追海豚+西归浦", color:"#c0733a"},
+  {id:"d2a",  label:"Day 2A · 汉拿山登顶", color:"#b04a37"},
+  {id:"d2b",  label:"Day 2B · 涯月邑海岸", color:"#2c6f6b"},
+  {id:"d3",   label:"Day 3 · 牛岛", color:"#3d7ea6"},
+  {id:"d4",   label:"Day 4 · 市区购物", color:"#8b7c68"},
+];
+const chipsBox = document.getElementById("mapChips");
+chipsBox.innerHTML = MAPDAYS.map(m=>`
+  <button class="mchip-btn${m.id==="all"?" on":""}" data-day="${m.id}" style="--mc:${m.color}">
+    <span class="sw" style="background:${m.color}"></span>${esc(m.label)}
+  </button>`).join("");
+
+const svg = document.getElementById("jejuMap");
+function applyDay(day){
+  chipsBox.querySelectorAll(".mchip-btn").forEach(b=>{
+    b.classList.toggle("on", b.dataset.day===day);
+  });
+  if(day==="all"){
+    svg.classList.remove("filtered");
+    svg.querySelectorAll(".route,.mk,.spot-lbl").forEach(el=>el.classList.add("on"));
+    return;
+  }
+  svg.classList.add("filtered");
+  svg.querySelectorAll(".route").forEach(el=>{
+    el.classList.toggle("on", el.dataset.d===day);
+  });
+  svg.querySelectorAll(".mk").forEach(el=>{
+    el.classList.toggle("on", (el.dataset.d||"").split(" ").includes(day));
+  });
+  svg.querySelectorAll(".spot-lbl").forEach(el=>{
+    const mk = el.closest(".mk") || el.closest(".spot");
+    el.classList.toggle("on", !!mk && (mk.dataset.d||"").split(" ").includes(day));
+  });
+  // hallasan spot is not a .mk; keep visible for d2a
+  svg.querySelectorAll(".spot:not(.mk)").forEach(el=>{
+    el.style.opacity = (day==="d2a"||day==="all") ? 1 : .18;
+  });
+}
+chipsBox.addEventListener("click",e=>{
+  const b = e.target.closest(".mchip-btn");
+  if(b) applyDay(b.dataset.day);
+});
+
+/* tooltip */
+const tip = document.getElementById("mapTip");
+const mapBox = document.querySelector(".map-box");
+svg.addEventListener("mousemove",e=>{
+  const g = e.target.closest(".spot");
+  if(!g || !g.dataset.name){ tip.classList.remove("show"); return; }
+  tip.innerHTML = `<b>${esc(g.dataset.name)}</b><span class="sub">${esc(g.dataset.desc||"")}</span>`;
+  const r = mapBox.getBoundingClientRect();
+  let x = e.clientX - r.left + 16, y = e.clientY - r.top + 14;
+  const tw = tip.offsetWidth || 220, th = tip.offsetHeight || 70;
+  if(x + tw > r.width - 8) x = e.clientX - r.left - tw - 14;
+  if(y + th > r.height - 8) y = e.clientY - r.top - th - 12;
+  tip.style.left = x+"px"; tip.style.top = y+"px";
+  tip.classList.add("show");
+});
+svg.addEventListener("mouseleave",()=>tip.classList.remove("show"));
+svg.addEventListener("mouseout",e=>{
+  if(!e.relatedTarget || !e.relatedTarget.closest || !e.relatedTarget.closest(".spot")) tip.classList.remove("show");
+});
+
+/* ══════════════ Interactions ══════════════ */
+const io = new IntersectionObserver((es)=>{
+  es.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); }
+  });
+},{rootMargin:"0px 0px -8% 0px",threshold:.06});
+document.querySelectorAll(".rv").forEach((el,i)=>{
+  el.style.transitionDelay = Math.min(i%6*55,300)+"ms";
+  io.observe(el);
+});
+
+const nav=document.getElementById("nav"), prog=document.getElementById("prog"), topBtn=document.getElementById("top");
+const heroH=()=>Math.max(window.innerHeight*.62,320);
+let raf=null;
+function onScroll(){
+  if(raf) return;
+  raf=requestAnimationFrame(()=>{
+    const y=window.scrollY||document.documentElement.scrollTop;
+    nav.classList.toggle("solid", y>heroH());
+    const h=document.documentElement.scrollHeight-window.innerHeight;
+    prog.style.width=(h>0? (y/h*100):0)+"%";
+    topBtn.classList.toggle("show", y>window.innerHeight*1.2);
+    raf=null;
+  });
+}
+window.addEventListener("scroll",onScroll,{passive:true});
+window.addEventListener("resize",onScroll,{passive:true});
+onScroll();
+
+topBtn.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
+
+document.querySelectorAll('.nav-links a[href^="#"]').forEach(a=>{
+  a.addEventListener("click",ev=>{
+    const el=document.querySelector(a.getAttribute("href"));
+    if(!el) return;
+    ev.preventDefault();
+    window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-52,behavior:"smooth"});
+  });
+});
+</script>
+</body>
+</html>
